@@ -80,6 +80,5 @@ cd backend && npm start
 └── package.json      ← Frontend
 
 ## 👩‍💻 Developed By
+Esha Amjad — Full Stack Developer  
 
-**[Your Name]** — Full Stack Developer  
-[LinkedIn](#) · [Portfolio](#)
