@@ -1,7 +1,7 @@
 //src/utils/api.js
 
 import axios from "axios";
-const API_BASE_URL = "https://gift-bites-production.up.railway.app/api";
+const API_BASE_URL = "https://gift-bites-production.up.railway.app";
 
 // CREATE AXIOS INSTANCE
 const API = axios.create({
