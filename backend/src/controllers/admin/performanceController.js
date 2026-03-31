@@ -1,7 +1,7 @@
 // backend/controllers/admin/performanceController.js
 const Order = require('../../models/Order');
 const User = require('../../models/User');
-// const Violation = require('../../models/Violation');
+const Violation = require('../../models/Violation');
 
 const getPerformanceData = async (req, res) => {
   try {
@@ -43,9 +43,9 @@ const getPerformanceData = async (req, res) => {
     });
 
     // Get violations
-    // const violations = await Violation.countDocuments({
-    //   createdAt: { $gte: startDate }
-    // });
+    const violations = await Violation.countDocuments({
+      createdAt: { $gte: startDate }
+    });
 
     // Get daily revenue for chart
     const dailyRevenue = [];
@@ -130,7 +130,7 @@ const getPerformanceData = async (req, res) => {
         totalRevenue,
         totalOrders,
         totalUsers: newUsers,
-        totalViolations: 0,
+        totalViolations: violations,
         revenueChange,
         ordersChange,
         usersChange,
