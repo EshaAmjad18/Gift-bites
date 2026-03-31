@@ -11,9 +11,15 @@ const app = express();
 // ========== CORS SETUP FIRST ==========
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: [
+      "http://localhost:5173", 
+      "http://localhost:3000",
+      "https://gift-bites.vercel.app",     // ✅ Vercel frontend
+      "https://gift-bites.vercel.app", 
+      "https://gift-bites-git-main.vercel.app" 
+    ],
     credentials: true,
-  }),
+  })
 );
 
 // ========== WEBHOOK SETUP - MUST BE BEFORE JSON PARSER ==========

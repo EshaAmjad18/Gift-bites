@@ -79,6 +79,6 @@ cd backend && npm start
 ├── index.html
 └── package.json      ← Frontend
 
-## 👩‍💻 Developed By
+### 👩‍💻 Developed By
 Esha Amjad — Full Stack Developer  
 
