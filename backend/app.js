@@ -55,6 +55,9 @@ app.get("/api/webhook/test", (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const StrikeManager = require("./src/utils/autoStrikeManager");
+
+
 // ========== MONGODB CONNECTION ==========
 mongoose
   .connect(process.env.MONGO_URI)
@@ -86,7 +89,6 @@ const staffPaymentRoutes = require("./src/routes/staff/paymentRoutes");
 const staffProfileRoutes = require("./src/routes/staff/profile");
 const staffRefundRoutes = require("./src/routes/staff/refund");
 const staffDashboardRoutes = require("./src/routes/staff/dashboard");
-const StrikeManager = require("./src/utils/autoStrikeManager");
 
 // Admin Routes
 const adminAuthRoutes = require("./src/routes/admin/auth");

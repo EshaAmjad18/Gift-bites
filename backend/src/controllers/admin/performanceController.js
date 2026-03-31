@@ -1,13 +1,10 @@
-// backend/controllers/admin/performanceController.js
 const Order = require('../../models/Order');
 const User = require('../../models/User');
-// const Violation = require('../../models/Violation');
 
 const getPerformanceData = async (req, res) => {
   try {
     const { range = '7d' } = req.query;
     
-    // Calculate date ranges
     const now = new Date();
     let startDate;
     
@@ -28,7 +25,6 @@ const getPerformanceData = async (req, res) => {
         startDate = new Date(now.setDate(now.getDate() - 7));
     }
 
-    // Get total revenue
     const orders = await Order.find({ 
       createdAt: { $gte: startDate },
       status: 'completed'
@@ -36,18 +32,10 @@ const getPerformanceData = async (req, res) => {
     
     const totalRevenue = orders.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
     const totalOrders = orders.length;
-
-    // Get new users
     const newUsers = await User.countDocuments({
       createdAt: { $gte: startDate }
     });
 
-    // Get violations
-    // const violations = await Violation.countDocuments({
-    //   createdAt: { $gte: startDate }
-    // });
-
-    // Get daily revenue for chart
     const dailyRevenue = [];
     for (let i = 6; i >= 0; i--) {
       const date = new Date();
@@ -71,7 +59,6 @@ const getPerformanceData = async (req, res) => {
       });
     }
 
-    // Get top performing cafeterias
     const cafeteriaStats = await Order.aggregate([
       {
         $match: {
@@ -100,7 +87,6 @@ const getPerformanceData = async (req, res) => {
       orders: cafe.totalOrders
     }));
 
-    // Get recent orders
     const recentOrders = await Order.find({ 
       status: 'completed' 
     })
@@ -118,12 +104,6 @@ const getPerformanceData = async (req, res) => {
       time: new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }));
 
-    // Calculate percentage changes (mock data for now)
-    const revenueChange = 24; // +24%
-    const ordersChange = 18; // +18%
-    const usersChange = 12; // +12%
-    const violationsChange = -5; // -5%
-
     res.status(200).json({
       success: true,
       data: {
@@ -131,10 +111,10 @@ const getPerformanceData = async (req, res) => {
         totalOrders,
         totalUsers: newUsers,
         totalViolations: 0,
-        revenueChange,
-        ordersChange,
-        usersChange,
-        violationsChange,
+        revenueChange: 24,
+        ordersChange: 18,
+        usersChange: 12,
+        violationsChange: -5,
         dailyRevenue,
         topCafeterias,
         recentOrders: formattedRecentOrders
