@@ -62,7 +62,7 @@ mongoose
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 // Initialize Strike Manager
 try {
-  autoStrikeManager.init();
+  StrikeManager.init();
   console.log("✅ Strike Manager initialized");
 } catch (error) {
   console.error("❌ Error initializing Strike Manager:", error);
