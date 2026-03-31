@@ -57,7 +57,7 @@ function StaffProfile() {
         // Fetch fresh data from API
         console.log('🌐 Making API call to /api/staff/profile');
         
-        const response = await fetch('http://localhost:5000/api/staff/profile', {
+        const response = await fetch('https://gift-bites-production.up.railway.app/api/staff/profile', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ function StaffProfile() {
 
       console.log('📤 Sending update data:', updateData);
 
-      const response = await fetch('http://localhost:5000/api/staff/profile', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/staff/profile', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -285,7 +285,7 @@ function StaffProfile() {
   const handleDebug = async () => {
     try {
       const token = authHelper.getToken();
-      const response = await fetch('http://localhost:5000/api/staff/profile/debug', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/staff/profile/debug', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

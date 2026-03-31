@@ -30,7 +30,7 @@ function TodayMenu() {
       }
 
       // Load today's menu
-      const todayResponse = await fetch('http://localhost:5000/api/staff/menu/today', {
+      const todayResponse = await fetch('https://gift-bites-production.up.railway.app/api/staff/menu/today', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ function TodayMenu() {
       });
 
       // Load all items
-      const allResponse = await fetch('http://localhost:5000/api/staff/menu', {
+      const allResponse = await fetch('https://gift-bites-production.up.railway.app/api/staff/menu', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ function TodayMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${itemId}/add-today`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${itemId}/add-today`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -108,7 +108,7 @@ function TodayMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${itemId}/remove-today`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${itemId}/remove-today`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -142,7 +142,7 @@ function TodayMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${itemId}/toggle`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${itemId}/toggle`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -398,7 +398,7 @@ function TodayMenu() {
                 <div style={styles.cardImageContainer}>
                   {item.image ? (
                     <img
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`https://gift-bites-production.up.railway.app/uploads/${item.image}`}
                       alt={item.name}
                       style={styles.cardImage}
                       onError={(e) => {
@@ -523,7 +523,7 @@ function TodayMenu() {
                 <div style={styles.addItemImage}>
                   {item.image ? (
                     <img
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`https://gift-bites-production.up.railway.app/uploads/${item.image}`}
                       alt={item.name}
                       style={styles.addItemImg}
                       onError={(e) => e.target.style.display = 'none'}

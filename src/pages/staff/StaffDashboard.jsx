@@ -31,7 +31,7 @@ function StaffDashboard() {
       for (const endpoint of endpoints) {
         try {
           console.log(`Trying endpoint: ${endpoint}`);
-          const response = await fetch(`http://localhost:5000/api${endpoint}`, {
+          const response = await fetch(`https://gift-bites-production.up.railway.app/api${endpoint}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ function StaffDashboard() {
       console.log('📊 Calculating stats manually...');
       const token = localStorage.getItem('staffToken') || localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:5000/api/staff/orders', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/staff/orders', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

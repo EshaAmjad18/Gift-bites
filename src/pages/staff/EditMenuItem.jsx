@@ -36,7 +36,7 @@ function EditMenuItem() {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/api/staff/menu`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu`, {
         headers: {
           'Authorization': `Bearer ${token}`, // ✅ Add authorization header
           'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ function EditMenuItem() {
           });
           
           if (item.image) {
-            const imageUrl = `http://localhost:5000/uploads/${item.image}`;
+            const imageUrl = `https://gift-bites-production.up.railway.app/uploads/${item.image}`;
             console.log('Setting image URL:', imageUrl);
             setCurrentImage(imageUrl);
             setPreview(imageUrl);
@@ -166,7 +166,7 @@ function EditMenuItem() {
         hasImage: !!form.image
       });
 
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${id}`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`, // ✅ Add authorization header
@@ -216,7 +216,7 @@ function EditMenuItem() {
     try {
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${id}`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

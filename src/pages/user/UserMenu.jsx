@@ -528,7 +528,7 @@ function MenuItemCard({ item, styles, quantity, updateQuantity, addToCart, addin
       <div style={styles.imageContainer}>
         {item.image ? (
           <img
-            src={`http://localhost:5000/uploads/${item.image}`}
+            src={`https://gift-bites-production.up.railway.app/uploads/${item.image}`}
             alt={item.name}
             style={styles.image}
             onError={(e) => { 

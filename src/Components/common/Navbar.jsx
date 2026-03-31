@@ -194,7 +194,7 @@ function Navbar({ cartCount = 0 }) {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/user/notifications/unread-count",
+        "https://gift-bites-production.up.railway.app/api/user/notifications/unread-count",
         {
           method: "GET",
           headers: {
@@ -229,7 +229,7 @@ function Navbar({ cartCount = 0 }) {
       if (!token) return;
 
       const response = await fetch(
-        "http://localhost:5000/api/user/notifications/mark-all-read",
+        "https://gift-bites-production.up.railway.app/api/user/notifications/mark-all-read",
         {
           method: "PUT",
           headers: {

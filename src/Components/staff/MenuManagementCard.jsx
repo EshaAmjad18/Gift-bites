@@ -208,7 +208,7 @@ function MenuManagementCard({ item, onToggleAvailability, onAddToToday, onRemove
         <div style={imageContainerStyle}>
           {item.image ? (
             <img 
-              src={`http://localhost:5000/uploads/${item.image}`} 
+              src={`https://gift-bites-production.up.railway.app/uploads/${item.image}`} 
               alt={item.name}
               style={imageStyle}
               onError={(e) => {

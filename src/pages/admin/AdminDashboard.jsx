@@ -19,7 +19,7 @@ function AdminDashboard() {
   const fetchAllStaffsData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/admin/dashboard/all-staffs', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/admin/dashboard/all-staffs', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ function AdminDashboard() {
   const fetchSystemOverview = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/admin/dashboard', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/admin/dashboard', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

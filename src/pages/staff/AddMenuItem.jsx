@@ -115,7 +115,7 @@ function AddMenuItem() {
 
       console.log('Sending menu item request...');
       
-      const response = await fetch('http://localhost:5000/api/staff/menu', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/staff/menu', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

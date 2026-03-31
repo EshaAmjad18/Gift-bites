@@ -26,7 +26,7 @@ function StaffMenu() {
       }
 
       // Load all menu items
-      const response = await fetch('http://localhost:5000/api/staff/menu', {
+      const response = await fetch('https://gift-bites-production.up.railway.app/api/staff/menu', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ function StaffMenu() {
       });
 
       // Load today's menu items
-      const todayResponse = await fetch('http://localhost:5000/api/staff/menu/today', {
+      const todayResponse = await fetch('https://gift-bites-production.up.railway.app/api/staff/menu/today', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ function StaffMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${id}/toggle`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${id}/toggle`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -109,7 +109,7 @@ function StaffMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${itemId}/add-today`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${itemId}/add-today`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -146,7 +146,7 @@ function StaffMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${itemId}/remove-today`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${itemId}/remove-today`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -188,7 +188,7 @@ function StaffMenu() {
       setRefreshing(true);
       const token = authHelper.getToken();
       
-      const response = await fetch(`http://localhost:5000/api/staff/menu/${itemId}`, {
+      const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/menu/${itemId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -273,7 +273,7 @@ function StaffMenu() {
             {todayItems.slice(0, 5).map(item => (
               <div key={item._id} style={styles.todayItem}>
                 <img 
-                  src={item.image ? `http://localhost:5000/uploads/${item.image}` : '/no-image.png'}
+                  src={item.image ? `https://gift-bites-production.up.railway.app/uploads/${item.image}` : '/no-image.png'}
                   alt={item.name}
                   style={styles.todayItemImage}
                   onError={(e) => {
@@ -337,7 +337,7 @@ function StaffMenu() {
                   <div style={styles.cardImageContainer}>
                     {item.image ? (
                       <img
-                        src={`http://localhost:5000/uploads/${item.image}`}
+                        src={`https://gift-bites-production.up.railway.app/uploads/${item.image}`}
                         alt={item.name}
                         style={styles.cardImage}
                         onError={(e) => {
