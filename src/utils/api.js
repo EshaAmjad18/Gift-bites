@@ -71,7 +71,7 @@ export const updateOrderStatus = async (orderId, status) => {
   const token =
     localStorage.getItem("staffToken") || localStorage.getItem("token");
 
-  return fetch(`http://localhost:5000/api/staff/orders/${orderId}/status`, {
+  return fetch(`https://gift-bites-production.up.railway.app/api/staff/orders/${orderId}/status`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -110,7 +110,7 @@ export const sendWarning = async (orderId) => {
     
     const token = localStorage.getItem("staffToken") || localStorage.getItem("token");
     
-    const response = await fetch(`http://localhost:5000/api/staff/orders/${orderId}/warning`, {
+    const response = await fetch(`https://gift-bites-production.up.railway.app/api/staff/orders/${orderId}/warning`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
