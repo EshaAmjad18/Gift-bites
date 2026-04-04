@@ -3,7 +3,7 @@ import axios from 'axios';
 import { authHelperUser } from './authHelper';
 
 const userAPI = axios.create({
-  baseURL: 'https://gift-bites-production.up.railway.app/api',
+  baseURL: 'https://gift-bites-production.up.railway.app',
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
