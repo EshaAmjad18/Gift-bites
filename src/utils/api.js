@@ -17,11 +17,11 @@ API.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    console.log("🔑 Request sent:", config.method, config.url);
+    // console.log("🔑 Request sent:", config.method, config.url);
     return config;
   },
   (error) => {
-    console.error("❌ Request interceptor error:", error);
+    // console.error("❌ Request interceptor error:", error);
     return Promise.reject(error);
   },
 );
@@ -29,16 +29,16 @@ API.interceptors.request.use(
 //  RESPONSE INTERCEPTOR FOR ERROR HANDLING
 API.interceptors.response.use(
   (response) => {
-    console.log("✅ Response received:", response.status, response.config.url);
+    // console.log("✅ Response received:", response.status, response.config.url);
     return response;
   },
   (error) => {
-    console.error("❌ Response error:", {
-      url: error.config?.url,
-      method: error.config?.method,
-      status: error.response?.status,
-      message: error.message,
-    });
+    // console.error("❌ Response error:", {
+    //   url: error.config?.url,
+    //   method: error.config?.method,
+    //   status: error.response?.status,
+    //   message: error.message,
+    // });
     return Promise.reject(error);
   },
 );
@@ -64,7 +64,7 @@ export const getOrderStats = () => {
 
 // Option 2: Simplest working version
 export const updateOrderStatus = async (orderId, status) => {
-  console.log("📡 Sending status update...", { orderId, status });
+  // console.log("📡 Sending status update...", { orderId, status });
 
   const token =
     localStorage.getItem("staffToken") || localStorage.getItem("token");
@@ -87,11 +87,11 @@ export const updateOrderStatus = async (orderId, status) => {
       return response.json();
     })
     .then((data) => {
-      console.log("✅ Update successful:", data);
+      // console.log("✅ Update successful:", data);
       return { data };
     })
     .catch((error) => {
-      console.error("❌ Update failed:", error);
+      // console.error("❌ Update failed:", error);
       throw error;
     });
 };
@@ -116,10 +116,10 @@ export const sendWarning = async (orderId) => {
       },
     });
     
-    console.log('📥 Warning response status:', response.status);
+    // console.log('📥 Warning response status:', response.status);
     
     const data = await response.json();
-    console.log('📦 Warning response data:', data);
+    // console.log('📦 Warning response data:', data);
     
     if (!response.ok) {
       throw new Error(data.message || `HTTP ${response.status}: Failed to send warning`);
@@ -128,7 +128,7 @@ export const sendWarning = async (orderId) => {
     return { data };
     
   } catch (error) {
-    console.error('❌ Send warning API error:', error);
+    // console.error('❌ Send warning API error:', error);
     throw error;
   }
 };
@@ -138,20 +138,20 @@ export const sendWarning = async (orderId) => {
 
 export const markCashPayment = async (orderId) => {
   try {
-    console.log("💰 Marking cash payment for order:", orderId);
+    // console.log("💰 Marking cash payment for order:", orderId);
 
     //Use the correct endpoint
     const response = await API.put(`/staff/orders/${orderId}/cash-payment`);
 
-    console.log("✅ Cash payment API response:", response.data);
+    // // console.log("✅ Cash payment API response:", response.data);
 
     // Return FULL response
     return response;
   } catch (error) {
-    console.error("❌ Cash payment error:", {
-      message: error.message,
-      response: error.response?.data,
-    });
+    // console.error("❌ Cash payment error:", {
+    //   message: error.message,
+    //   response: error.response?.data,
+    // });
 
     const errorMessage =
       error.response?.data?.message ||
@@ -194,19 +194,19 @@ export const getSalesReport = (startDate, endDate) => {
 
 export const getPendingCashRefunds = async () => {
   const response = await API.get("/staff/refunds/pending");
-  console.log("API getPendingCashRefunds response:", response.data); // Debug
+ // console.log("API getPendingCashRefunds response:", response.data); // Debug
   return response;
 };
 
 export const markCashRefundComplete = async (orderId) => {
   const response = await API.post(`/staff/refunds/${orderId}/complete`);
-  console.log("API markCashRefundComplete response:", response.data); // Debug
+  //console.log("API markCashRefundComplete response:", response.data); // Debug
   return response;
 };
 
 export const getRefundStats = async () => {
   const response = await API.get("/staff/refunds/stats");
-  console.log("API getRefundStats response:", response.data); // Debug
+ // console.log("API getRefundStats response:", response.data); // Debug
   return response;
 };
 

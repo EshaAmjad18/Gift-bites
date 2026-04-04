@@ -7,7 +7,7 @@ export const fetchAllCafeterias = async () => {
     const response = await userAPI.get('/user/menu/cafeterias');
     return response.data;
   } catch (error) {
-    // console.error('Error fetching cafeterias:', error);
+    console.error('Error fetching cafeterias:', error);
     throw error;
   }
 };
@@ -17,7 +17,7 @@ export const fetchTodayMenu = async (cafeteriaName) => {
     const response = await userAPI.get(`/user/menu/${cafeteriaName}/today`);
     return response.data;
   } catch (error) {
-    // console.error('Error fetching menu:', error);
+    console.error('Error fetching menu:', error);
     throw error;
   }
 };
@@ -27,7 +27,7 @@ export const checkCafeteriaHours = async (cafeteriaName) => {
     const response = await userAPI.get(`/user/menu/${cafeteriaName}/hours`);
     return response.data;
   } catch (error) {
-    // console.error('Error checking hours:', error);
+    console.error('Error checking hours:', error);
     throw error;
   }
 };
@@ -38,7 +38,7 @@ export const fetchCart = async () => {
     const response = await userAPI.get('/user/cart');
     return response.data;
   } catch (error) {
-    // console.error('Error fetching cart:', error);
+    console.error('Error fetching cart:', error);
     throw error;
   }
 };
@@ -51,7 +51,7 @@ export const addItemToCart = async (itemId, quantity) => {
     });
     return response.data;
   } catch (error) {
-    // console.error('Error adding to cart:', error);
+    console.error('Error adding to cart:', error);
     throw error;
   }
 };
@@ -61,7 +61,7 @@ export const updateCartItem = async (itemId, quantity) => {
     const response = await userAPI.put(`/user/cart/${itemId}`, { quantity });
     return response.data;
   } catch (error) {
-    // console.error('Error updating cart item:', error);
+    console.error('Error updating cart item:', error);
     throw error;
   }
 };
@@ -71,7 +71,7 @@ export const removeCartItem = async (itemId) => {
     const response = await userAPI.delete(`/user/cart/${itemId}`);
     return response.data;
   } catch (error) {
-    // console.error('Error removing cart item:', error);
+    console.error('Error removing cart item:', error);
     throw error;
   }
 };
@@ -81,7 +81,7 @@ export const clearCart = async () => {
     const response = await userAPI.delete('/user/cart');
     return response.data;
   } catch (error) {
-    // console.error('Error clearing cart:', error);
+    console.error('Error clearing cart:', error);
     throw error;
   }
 };
@@ -91,7 +91,7 @@ export const getCartCount = async () => {
     const response = await userAPI.get('/user/cart/count');
     return response.data;
   } catch (error) {
-    // console.error('Error getting cart count:', error);
+    console.error('Error getting cart count:', error);
     throw error;
   }
 };
@@ -102,7 +102,7 @@ export const testCartAPI = async () => {
     const response = await userAPI.get('/user/cart/test');
     return response.data;
   } catch (error) {
-    // console.error('Error testing cart API:', error);
+    console.error('Error testing cart API:', error);
     throw error;
   }
 };
@@ -113,7 +113,7 @@ export const createOrder = async (orderData) => {
     const response = await userAPI.post('/user/orders', orderData);
     return response.data;
   } catch (error) {
-    // console.error('Error creating order:', error);
+    console.error('Error creating order:', error);
     throw error;
   }
 };
@@ -236,7 +236,7 @@ export const fetchUserStats = async () => {
     const response = await userAPI.get('/user/profile/stats');
     return response.data;
   } catch (error) {
-    // console.error('Error fetching stats:', error);
+    console.error('Error fetching stats:', error);
     throw error;
   }
 };
@@ -246,7 +246,7 @@ export const fetchRecentUserOrders = async (limit = 5) => {
     const response = await userAPI.get(`/user/profile/orders?limit=${limit}`);
     return response.data;
   } catch (error) {
-    // console.error('Error fetching recent orders:', error);
+    console.error('Error fetching recent orders:', error);
     throw error;
   }
 };

@@ -14,7 +14,7 @@ const authHelper = {
     localStorage.setItem('user', JSON.stringify(userData));
     localStorage.setItem('role', role);
     
-    console.log(`✅ Auth data saved for ${role}`);
+    //console.log(`✅ Auth data saved for ${role}`);
   },
 
   // Get current user token

@@ -42,7 +42,7 @@ function UserHome() {
       
       // ✅ FIXED: Use correct cafes endpoint
       console.log('📡 Fetching cafes from /api/user/menu/cafeterias...');
-      const cafesResponse = await axios.get('/api/user/menu/cafeterias');
+      const cafesResponse = await axios.get('/user/menu/cafeterias');
       
       console.log('✅ Cafes API Response:', cafesResponse.data);
       
