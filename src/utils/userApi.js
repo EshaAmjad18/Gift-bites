@@ -88,7 +88,7 @@ export const clearCart = async () => {
 
 export const getCartCount = async () => {
   try {
-    const response = await userAPI.get('/user/cart/count');
+    const response = await userAPI.get('api/user/cart/count');
     return response.data;
   } catch (error) {
     console.error('Error getting cart count:', error);
