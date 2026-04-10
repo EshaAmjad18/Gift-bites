@@ -4,7 +4,7 @@ import userAPI from './userAxios';
 // ========== MENU FUNCTIONS ==========
 export const fetchAllCafeterias = async () => {
   try {
-    const response = await userAPI.get('/user/menu/cafeterias');
+    const response = await userAPI.get('/api/user/menu/cafeterias');
     return response.data;
   } catch (error) {
     console.error('Error fetching cafeterias:', error);
@@ -14,7 +14,7 @@ export const fetchAllCafeterias = async () => {
 
 export const fetchTodayMenu = async (cafeteriaName) => {
   try {
-    const response = await userAPI.get(`/user/menu/${cafeteriaName}/today`);
+    const response = await userAPI.get(`/api/user/menu/${cafeteriaName}/today`);
     return response.data;
   } catch (error) {
     console.error('Error fetching menu:', error);
@@ -24,7 +24,7 @@ export const fetchTodayMenu = async (cafeteriaName) => {
 
 export const checkCafeteriaHours = async (cafeteriaName) => {
   try {
-    const response = await userAPI.get(`/user/menu/${cafeteriaName}/hours`);
+    const response = await userAPI.get(`/api/user/menu/${cafeteriaName}/hours`);
     return response.data;
   } catch (error) {
     console.error('Error checking hours:', error);
@@ -35,7 +35,7 @@ export const checkCafeteriaHours = async (cafeteriaName) => {
 // ========== CART FUNCTIONS ==========
 export const fetchCart = async () => {
   try {
-    const response = await userAPI.get('/user/cart');
+    const response = await userAPI.get('/api/user/cart');
     return response.data;
   } catch (error) {
     console.error('Error fetching cart:', error);
@@ -45,7 +45,7 @@ export const fetchCart = async () => {
 
 export const addItemToCart = async (itemId, quantity) => {
   try {
-    const response = await userAPI.post('/user/cart/add', {
+    const response = await userAPI.post('/api/user/cart/add', {
       itemId,
       quantity
     });
@@ -58,7 +58,7 @@ export const addItemToCart = async (itemId, quantity) => {
 
 export const updateCartItem = async (itemId, quantity) => {
   try {
-    const response = await userAPI.put(`/user/cart/${itemId}`, { quantity });
+    const response = await userAPI.put(`/api/user/cart/${itemId}`, { quantity });
     return response.data;
   } catch (error) {
     console.error('Error updating cart item:', error);
@@ -68,7 +68,7 @@ export const updateCartItem = async (itemId, quantity) => {
 
 export const removeCartItem = async (itemId) => {
   try {
-    const response = await userAPI.delete(`/user/cart/${itemId}`);
+    const response = await userAPI.delete(`/api/user/cart/${itemId}`);
     return response.data;
   } catch (error) {
     console.error('Error removing cart item:', error);
@@ -78,7 +78,7 @@ export const removeCartItem = async (itemId) => {
 
 export const clearCart = async () => {
   try {
-    const response = await userAPI.delete('/user/cart');
+    const response = await userAPI.delete('/api/user/cart');
     return response.data;
   } catch (error) {
     console.error('Error clearing cart:', error);
@@ -88,7 +88,7 @@ export const clearCart = async () => {
 
 export const getCartCount = async () => {
   try {
-    const response = await userAPI.get('api/user/cart/count');
+    const response = await userAPI.get('/api/user/cart/count');
     return response.data;
   } catch (error) {
     console.error('Error getting cart count:', error);
@@ -99,7 +99,7 @@ export const getCartCount = async () => {
 // ========== TEST FUNCTIONS ==========
 export const testCartAPI = async () => {
   try {
-    const response = await userAPI.get('/user/cart/test');
+    const response = await userAPI.get('/api/user/cart/test');
     return response.data;
   } catch (error) {
     console.error('Error testing cart API:', error);
@@ -110,7 +110,7 @@ export const testCartAPI = async () => {
 // ========== ORDER FUNCTIONS ==========
 export const createOrder = async (orderData) => {
   try {
-    const response = await userAPI.post('/user/orders', orderData);
+    const response = await userAPI.post('/api/user/orders', orderData);
     return response.data;
   } catch (error) {
     console.error('Error creating order:', error);
@@ -120,7 +120,7 @@ export const createOrder = async (orderData) => {
 
 export const fetchActiveOrders = async () => {
   try {
-    const response = await userAPI.get('/user/orders/active');
+    const response = await userAPI.get('/api/user/orders/active');
     return response.data;
   } catch (error) {
     // console.error('Error fetching active orders:', error);
@@ -130,7 +130,7 @@ export const fetchActiveOrders = async () => {
 
 export const fetchOrderHistory = async (params = {}) => {
   try {
-    const response = await userAPI.get('/user/orders/history', { params });
+    const response = await userAPI.get('/api/user/orders/history', { params });
     return response.data;
   } catch (error) {
     // console.error('Error fetching order history:', error);
@@ -140,7 +140,7 @@ export const fetchOrderHistory = async (params = {}) => {
 
 export const fetchOrderDetails = async (orderId) => {
   try {
-    const response = await userAPI.get(`/user/orders/${orderId}`);
+    const response = await userAPI.get(`/api/user/orders/${orderId}`);
     return response.data;
   } catch (error) {
     // console.error('Error fetching order details:', error);
@@ -150,7 +150,7 @@ export const fetchOrderDetails = async (orderId) => {
 
 export const cancelOrder = async (orderId, reason = '') => {
   try {
-    const response = await userAPI.put(`/user/orders/${orderId}/cancel`, { reason });
+    const response = await userAPI.put(`/api/user/orders/${orderId}/cancel`, { reason });
     return response.data;
   } catch (error) {
     // console.error('Error cancelling order:', error);
@@ -160,7 +160,7 @@ export const cancelOrder = async (orderId, reason = '') => {
 
 export const checkCancellationEligibility = async (orderId) => {
   try {
-    const response = await userAPI.get(`/user/orders/${orderId}/can-cancel`);
+    const response = await userAPI.get(`/api/user/orders/${orderId}/can-cancel`);
     return response.data;
   } catch (error) {
     // console.error('Error checking cancellation:', error);
@@ -171,7 +171,7 @@ export const checkCancellationEligibility = async (orderId) => {
 // ✅ FIXED: Use correct endpoint path
 export const createPaymentSession = async (orderId) => {
   try {
-    const response = await userAPI.post('/user/payment/create-session', { 
+    const response = await userAPI.post('/api/user/payment/create-session', { 
       orderId 
     });
     return response.data;
@@ -183,7 +183,7 @@ export const createPaymentSession = async (orderId) => {
 
 export const verifyPayment = async (sessionId) => {
   try {
-    const response = await userAPI.get(`/user/payment/verify/${sessionId}`);
+    const response = await userAPI.get(`/api/user/payment/verify/${sessionId}`);
     return response.data;
   } catch (error) {
     // console.error('Error verifying payment:', error);
@@ -192,7 +192,7 @@ export const verifyPayment = async (sessionId) => {
 }; 
 export const initiateRefund = async (orderId) => {
   try {
-    const response = await userAPI.post(`/user/payment/${orderId}/refund`);
+    const response = await userAPI.post(`/api/user/payment/${orderId}/refund`);
     return response.data;
   } catch (error) {
     // console.error('Error initiating refund:', error);
@@ -202,7 +202,7 @@ export const initiateRefund = async (orderId) => {
 
 export const checkRefundStatus = async (orderId) => {
   try {
-    const response = await userAPI.get(`/user/payment/${orderId}/refund-status`);
+    const response = await userAPI.get(`/api/user/payment/${orderId}/refund-status`);
     return response.data;
   } catch (error) {
     // console.error('Error checking refund:', error);
@@ -213,7 +213,7 @@ export const checkRefundStatus = async (orderId) => {
 // ========== PROFILE FUNCTIONS ==========
 export const fetchUserProfile = async () => {
   try {
-    const response = await userAPI.get('/user/profile');
+    const response = await userAPI.get('/api/user/profile');
     return response.data;
   } catch (error) {
     // console.error('Error fetching profile:', error);
@@ -233,7 +233,7 @@ export const updateUserProfile = async (profileData) => {
 
 export const fetchUserStats = async () => {
   try {
-    const response = await userAPI.get('/user/profile/stats');
+    const response = await userAPI.get('/api/user/profile/stats');
     return response.data;
   } catch (error) {
     console.error('Error fetching stats:', error);
@@ -243,7 +243,7 @@ export const fetchUserStats = async () => {
 
 export const fetchRecentUserOrders = async (limit = 5) => {
   try {
-    const response = await userAPI.get(`/user/profile/orders?limit=${limit}`);
+    const response = await userAPI.get(`/api/user/profile/orders?limit=${limit}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching recent orders:', error);
