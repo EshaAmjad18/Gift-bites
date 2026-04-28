@@ -274,7 +274,8 @@ setInterval(
 // ========== SEED CAFETERIAS ==========
 const seedCafes = require("./src/utils/seedCafes");
 seedCafes();
-
+/////////////////////serverless export for testing purposes//////////////// 
+module.exports = app;
 // ========== START SERVER ==========
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
